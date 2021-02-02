@@ -37,13 +37,17 @@
   }
 }
 
+.container-fluid {
+  padding-top: 10px;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
 }
 
 .card {
-  width: 98%;
+  width: 90%;
   height: 400px;
   margin: 5px;
   padding: 10px;
