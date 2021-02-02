@@ -1,43 +1,31 @@
-import react from 'react'
+import React, {useState, useEffect} from 'react'
 import Product from '../components/product'
 
-class Home extends react.Component {
-  constructor() {
-    super()
-    this.state = {
-      products: []
-    }
-  }
-
-  componentDidMount() {
+export default function Home() {
+  const [products, setProducts] = useState([])
+  
+  useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then(res => res.json())
       .then(
         (data => {
-          console.log(data)
-          this.setState({
-            products: data
-          })
-          console.log(this.state.products)
+          setProducts(data)
         })
       )
-  }
+  }, [])
 
-  render() {
     return (
       <>
-        <div className="row">
-          <h1>Products</h1>
-          <div className='products'>
-            {this.state.products.map(product => {
-              return <Product product={product} key={product.id}></Product>
-            })}
+        <div className="container-fluid">
+          <div className="row">
+            <h1>Products</h1>
+            <div className='products'>
+              {products.map(product => {
+                return <Product product={product} key={product.id}></Product>
+              })}
+            </div>
           </div>
         </div>
       </>
     )
-  }
-
 }
-
-export default Home

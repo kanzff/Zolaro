@@ -1,15 +1,11 @@
 import './App.css';
-import react from 'react'
+import React from 'react'
 import Home from './views/home'
 
-class App extends react.Component {
-  render() {
+export default function App() {
     return (
       <div className="App">
         <Home></Home>
       </div>
     );
-  }
 }
-
-export default App;
