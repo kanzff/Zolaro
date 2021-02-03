@@ -1,10 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import Product from '../components/product'
-import useFetch from '../hooks/fetchData'
+import useFetch from '../hooks/useFetchData'
 
 export default function Home() {
-  const {data: products, loading} = (useFetch('https://fakestoreapi.com/products'))
-  
+  const { loading} = (useFetch('https://fakestoreapi.com/products'))
+  const { products } = useSelector((state) => state)
+  console.log(products)
+
   return (
     <>
       <div className="row">

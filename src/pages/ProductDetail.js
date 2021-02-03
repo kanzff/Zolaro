@@ -1,10 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import useFetch from '../hooks/fetchData'
+import { useSelector } from 'react-redux'
+import useFetch from '../hooks/useFetchData'
 
 export default function ProductDetail() {
   const { id } = useParams()
-  const {data: product, loading} = (useFetch(`https://fakestoreapi.com/products/${id}`))
+  const { loading } = (useFetch(`https://fakestoreapi.com/products/${id}`))
+  const { productDetail } = useSelector((state) => state)
   
   return (
     <div className="row">
@@ -20,14 +22,14 @@ export default function ProductDetail() {
           {!loading && 
             <div className="row product-detail-card">
               <div className="col-4">
-                <img src={product.image} className="card-img" alt=".."></img>
+                <img src={productDetail.image} className="card-img" alt=".."></img>
               </div>
               <div className="col-7 offset-1" style={{textAlign: "left"}}>
-                <h4>{product.title}</h4><br></br><br></br>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{product.description}</p>
+                <h4>{productDetail.title}</h4><br></br><br></br>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{productDetail.description}</p>
                 <div className="card-detail">
-                  <p>Category : {product.category}</p>
-                  <p>Price : ${product.price}</p>
+                  <p>Category : {productDetail.category}</p>
+                  <p>Price : ${productDetail.price}</p>
                 </div>
               </div>
             </div>
