@@ -38,7 +38,11 @@
 }
 
 .container-fluid {
-  padding-top: 10px;
+  padding: 0px;
+}
+
+.content {
+  padding: 15px;
 }
 
 .products {
@@ -83,4 +87,12 @@
 .card-img {
   object-fit: contain;
   object-position: 50% 50%;
+}
+
+.navbar {
+  padding-left: 18px;
+}
+
+.navbar-brand {
+  padding-top: 10px;
 }

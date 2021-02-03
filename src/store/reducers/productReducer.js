@@ -1,7 +1,7 @@
 const initialState = {
   products: [],
   productDetail: {},
-  favoriteIds: [1, 3, 8],
+  favoriteIds: []
   // favorites: this.products.filter(product => {
   //   return this.favoriteIds.indexOf(product.id)
   // })

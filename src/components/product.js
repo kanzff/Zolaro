@@ -1,8 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addFavorite } from '../store/actions/productAction'
 
 export default function Product(props) {
     const product = props.product
+    const history = useHistory()
+    const dispatch = useDispatch()
+
+    const addToFav = (id) => {
+      dispatch(addFavorite(id))
+      // console.log(id)
+      history.push('/favorites')
+    }
+
     return (
       <div className="col-3" style={{marginBottom: '12px'}}>
         <div className="card">
@@ -12,6 +23,7 @@ export default function Product(props) {
             <div className="card-detail">
               <p className="card-text">Price : <span> $ {product.price}</span></p>
               <Link to={`/products/${product.id}`} className="btn btn-dark">Detail</Link>
+              <button onClick={() => addToFav(product.id)} className="btn btn-dark"style={{marginLeft: '50px'}}>Add to favorite</button>
             </div>
           </div>
         </div>

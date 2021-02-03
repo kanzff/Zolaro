@@ -6,7 +6,7 @@ import { fetchProducts, fetchProductDetail } from '../store/actions/productActio
 export default function useFetch(url) {
   // console.log('masuk fetch di hooks')
   const dispatch = useDispatch()
-  const [data, setData] = useState([])
+  // const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -31,8 +31,6 @@ export default function useFetch(url) {
   }, [url, dispatch])
 
   return {
-    data,
-    setData,
     loading
   }
 }

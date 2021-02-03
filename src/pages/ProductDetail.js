@@ -9,7 +9,7 @@ export default function ProductDetail() {
   const { productDetail } = useSelector((state) => state)
   
   return (
-    <div className="row">
+    <div className="row content">
       <h1>Product Detail</h1>
       <div className="col-8 offset-2 product-detail">
         <div className="card">
