@@ -9,7 +9,13 @@ export default function useFetch(url) {
       .then(res => res.json())
       .then(
         (data => {
-          let newData = [...data]
+          // console.log(data)
+          let newData
+          if (Array.isArray(data)) {
+            newData = [...data]
+          } else {
+            newData = data
+          }
           setLoading(false)
           setData(newData)
         })
