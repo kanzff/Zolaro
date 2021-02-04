@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Product from '../components/product'
-// import useFetch from '../hooks/useFetchData'
 import { fetchProducts } from '../store/actions/productAction'
 
 export default function Home() {
-  // const { loading} = (useFetch('https://fakestoreapi.com/products'))
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchProducts())
   }, [dispatch])
 
   const { products } = useSelector((state) => state.products)
-  // console.log(products)
 
   return (
     <>

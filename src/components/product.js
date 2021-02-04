@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addFavorite } from '../store/actions/favoriteAction'
 
@@ -7,10 +7,10 @@ export default function Product(props) {
     const product = props.product
     const history = useHistory()
     const dispatch = useDispatch()
+    const location = useLocation()
 
     const addToFav = (id) => {
       dispatch(addFavorite(id))
-      // console.log(id)
       history.push('/favorites')
     }
 
@@ -23,7 +23,9 @@ export default function Product(props) {
             <div className="card-detail">
               <p className="card-text">Price : <span> $ {product.price}</span></p>
               <Link to={`/products/${product.id}`} className="btn btn-dark">Detail</Link>
-              <button onClick={() => addToFav(product.id)} className="btn btn-dark"style={{marginLeft: '50px'}}>Add to favorite</button>
+              {location.pathname === '/' &&
+                <button onClick={() => addToFav(product.id)} className="btn btn-dark"style={{marginLeft: '50px'}}>Add to favorite</button>
+              }
             </div>
           </div>
         </div>

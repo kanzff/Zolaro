@@ -1,16 +1,11 @@
-export function fetchProducts() { //tdi nya ada param data
-  // return {
-  //   type: 'FETCH_PRODUCTS',
-  //   payload: data
-  // }
-
+export function fetchProducts() {
+  
   return async (dispatch) => {
     try {
       const response = await fetch(
         'https://fakestoreapi.com/products'
       )
       const data = await response.json()
-      // console.log(data)
 
       dispatch({
         type: 'FETCH_PRODUCTS',
@@ -23,18 +18,13 @@ export function fetchProducts() { //tdi nya ada param data
 }
 
 export function fetchProductDetail(id) {
-  // return {
-  //   type: 'FETCH_PRODUCT_DETAIL',
-  //   payload: data
-  // }
-
+  
   return async (dispatch) => {
     try {
       const response = await fetch(
         `https://fakestoreapi.com/products/${id}`
       )
       const data = await response.json()
-      console.log(data)
 
       dispatch({
         type: 'FETCH_PRODUCT_DETAIL',
@@ -45,10 +35,3 @@ export function fetchProductDetail(id) {
     }
   }
 }
-
-// export const addFavorite = (id) => {
-//   return {
-//     type: 'ADD_FAVORITE',
-//     payload: id
-//   }
-// }

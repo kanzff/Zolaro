@@ -2,12 +2,11 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchProductDetail } from '../store/actions/productAction'
-// import useFetch from '../hooks/useFetchData'
 
 export default function ProductDetail() {
   const { id } = useParams()
   const dispatch = useDispatch()
-  // const { loading } = (useFetch(`https://fakestoreapi.com/products/${id}`))
+ 
   useEffect(() => {
     dispatch(fetchProductDetail(id))
   }, [dispatch, id])
