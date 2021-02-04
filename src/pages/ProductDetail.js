@@ -11,20 +11,20 @@ export default function ProductDetail() {
     dispatch(fetchProductDetail(id))
   }, [dispatch, id])
 
-  const { productDetail } = useSelector((state) => state.products)
+  const { productDetail, isLoading } = useSelector((state) => state.products)
   
   return (
     <div className="row content">
       <h1>Product Detail</h1>
       <div className="col-8 offset-2 product-detail">
         <div className="card">
-          {/* {loading && 
+          {isLoading && 
             <div className="d-flex justify-content-center loading">
               <div className="spinner-border text-dark" role="status">
                 <span className="sr-only"></span>
               </div>
-            </div>} */}
-          {/* {!loading &&  */}
+            </div>}
+          {!isLoading && 
             <div className="row product-detail-card">
               <div className="col-4">
                 <img src={productDetail.image} className="card-img" alt=".."></img>
@@ -38,7 +38,7 @@ export default function ProductDetail() {
                 </div>
               </div>
             </div>
-          {/* } */}
+          }
         </div>
       </div>
     </div>

@@ -2,6 +2,10 @@ export function fetchProducts() {
   
   return async (dispatch) => {
     try {
+      dispatch({
+        type: 'FETCH_PRODUCTS_START'
+      })
+
       const response = await fetch(
         'https://fakestoreapi.com/products'
       )
@@ -21,6 +25,10 @@ export function fetchProductDetail(id) {
   
   return async (dispatch) => {
     try {
+      dispatch({
+        type: 'FETCH_PRODUCTS_START'
+      })
+      
       const response = await fetch(
         `https://fakestoreapi.com/products/${id}`
       )

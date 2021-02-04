@@ -9,18 +9,18 @@ export default function Home() {
     dispatch(fetchProducts())
   }, [dispatch])
 
-  const { products } = useSelector((state) => state.products)
+  const { products, isLoading } = useSelector((state) => state.products)
 
   return (
     <>
       <div className="row content">
         <h1>Products</h1>
-        {/* {loading && 
+        {isLoading && 
         <div className="d-flex justify-content-center loading">
           <div className="spinner-border text-dark" role="status">
             <span className="sr-only"></span>
           </div>
-        </div>} */}
+        </div>}
         <div className='products'>
           {products.map(product => {
             return <Product product={product} key={product.id}></Product>
