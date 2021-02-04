@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import useFetch from '../hooks/useFetchData'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchProductDetail } from '../store/actions/productAction'
+// import useFetch from '../hooks/useFetchData'
 
 export default function ProductDetail() {
   const { id } = useParams()
-  const { loading } = (useFetch(`https://fakestoreapi.com/products/${id}`))
+  const dispatch = useDispatch()
+  // const { loading } = (useFetch(`https://fakestoreapi.com/products/${id}`))
+  useEffect(() => {
+    dispatch(fetchProductDetail(id))
+  }, [dispatch, id])
+
   const { productDetail } = useSelector((state) => state)
   
   return (
@@ -13,13 +19,13 @@ export default function ProductDetail() {
       <h1>Product Detail</h1>
       <div className="col-8 offset-2 product-detail">
         <div className="card">
-          {loading && 
+          {/* {loading && 
             <div className="d-flex justify-content-center loading">
               <div className="spinner-border text-dark" role="status">
                 <span className="sr-only"></span>
               </div>
-            </div>}
-          {!loading && 
+            </div>} */}
+          {/* {!loading &&  */}
             <div className="row product-detail-card">
               <div className="col-4">
                 <img src={productDetail.image} className="card-img" alt=".."></img>
@@ -33,7 +39,7 @@ export default function ProductDetail() {
                 </div>
               </div>
             </div>
-          }
+          {/* } */}
         </div>
       </div>
     </div>
