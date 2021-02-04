@@ -21,11 +21,11 @@ const productReducer = (state = initialState, action) => {
         ...state,
         productDetail: action.payload
       }
-    case 'ADD_FAVORITE':
-      return {
-        ...state,
-        favoriteIds: state.favoriteIds.concat(action.payload)
-      }
+    // case 'ADD_FAVORITE':
+    //   return {
+    //     ...state,
+    //     favoriteIds: state.favoriteIds.concat(action.payload)
+    //   }
     default: 
       return state
   }

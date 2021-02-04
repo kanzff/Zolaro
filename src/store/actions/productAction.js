@@ -46,9 +46,9 @@ export function fetchProductDetail(id) {
   }
 }
 
-export const addFavorite = (id) => {
-  return {
-    type: 'ADD_FAVORITE',
-    payload: id
-  }
-}
+// export const addFavorite = (id) => {
+//   return {
+//     type: 'ADD_FAVORITE',
+//     payload: id
+//   }
+// }

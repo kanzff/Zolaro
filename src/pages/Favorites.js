@@ -5,7 +5,8 @@ import useFetch from '../hooks/useFetchData'
 
 export default function Favorites() {
   const { loading } = (useFetch('https://fakestoreapi.com/products'))
-  const { products, favoriteIds } = useSelector((state) => state)
+  const { products } = useSelector((state) => state.products)
+  const { favoriteIds } = useSelector((state) => state.favorites)
 
   console.log(favoriteIds)
 

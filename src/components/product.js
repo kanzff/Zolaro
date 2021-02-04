@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { addFavorite } from '../store/actions/productAction'
+import { addFavorite } from '../store/actions/favoriteAction'
 
 export default function Product(props) {
     const product = props.product

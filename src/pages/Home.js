@@ -11,7 +11,7 @@ export default function Home() {
     dispatch(fetchProducts())
   }, [dispatch])
 
-  const { products } = useSelector((state) => state)
+  const { products } = useSelector((state) => state.products)
   // console.log(products)
 
   return (

@@ -12,7 +12,7 @@ export default function ProductDetail() {
     dispatch(fetchProductDetail(id))
   }, [dispatch, id])
 
-  const { productDetail } = useSelector((state) => state)
+  const { productDetail } = useSelector((state) => state.products)
   
   return (
     <div className="row content">
